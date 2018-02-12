@@ -13,8 +13,27 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 } ?>
-
-<h3><?php esc_html_e( 'Tax exempt?', 'simplesalestax' ); ?> <input type="checkbox" name="tax_exempt" id="tax_exempt_checkbox" class="input-checkbox" value="1"<?php checked( $checked ); ?>></h3>
+<style>
+.dm-tax-exempt { margin-left:8px;}
+.wc-backbone-modal-main abbr { text-decoration:none;}
+.wc-backbone-modal-main select {
+	width: 100%;
+    padding: 15px;
+    outline: 0;
+    resize: none;
+    font-family: inherit;
+    line-height: 20px;
+    background-color: #f6f6f5;
+    color: #333333;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
+    font-size: 14px;
+    vertical-align: top;
+}
+</style>
+<h3><?php esc_html_e( 'Tax exempt?', 'simplesalestax' ); ?> <label class="control control--checkbox dm-tax-exempt" style="display:inline;"> <input type="checkbox" name="tax_exempt" id="tax_exempt_checkbox" class="input-checkbox" value="1"<?php checked( $checked ); ?>><span class="control__indicator"></span></label></h3>
 
 <div id="tax_details">
 
@@ -24,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <?php if ( is_user_logged_in() ): ?>
     
-    <p><?php esc_html_e( 'Select an exemption certificate from the table below, or click "Add Certificate" and fill out the provided form.', 'simplesalestax' ); ?></p>
+    <p><?php esc_html_e( 'Select an exemption certificate from the table below, or click "Add Certificate" and fill out the provided form. Please note that CAI will request a copy of the original tax exempt certificate from their customers for verification and filing purposes after the order has been placed.', 'simplesalestax' ); ?></p>
 
     <table id="sst-certificates" class="shop_table">
         <thead>
@@ -195,7 +214,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </article>
                 <footer>
                     <div class="inner">
-                        <button id="btn-ok" class="button alt"><?php _e( 'Add certificate', 'simplesalestax' ); ?></button>
+                        <button id="btn-ok" class="button alt qodef-btn checkout-button"><?php _e( 'Add certificate', 'simplesalestax' ); ?></button>
                     </div>
                 </footer>
             </section>
